@@ -1,25 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { CountryContextProvider } from './context/country';
+import { Header } from './components/header/Header';
+import { ShowCountry } from './components/show-country/ShowCountry';
+
+import './assets/stylesheets/main.scss';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CountryContextProvider>
+      <Header />
+      <main>
+        <div className="container">
+          <ShowCountry />
+        </div>
+      </main>
+    </CountryContextProvider>
   );
 }
 
