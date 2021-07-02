@@ -9,11 +9,3 @@ export const getCountry = (country: string) => {
       console.log(error);
     });
 }
-
-export const getCountries = () => {
-  return axios.get(`${baseUrl}/`)
-    .then(response => response.data)
-    .catch(error => {
-      console.log(error);
-    });
-}

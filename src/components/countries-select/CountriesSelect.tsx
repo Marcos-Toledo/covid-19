@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, ChangeEvent } from "react";
 import { CountryContext } from "../../context/country";
 import { countries } from "./countries";
 
@@ -10,18 +10,17 @@ type CountriesType = {
 export function CountriesSelect() {
   const { handleGetCountry } = useContext(CountryContext);
 
-  const handleSelectCountry = (nameOfTheCountry: string) => {
-    handleGetCountry(nameOfTheCountry);
+  const handleSelectValue = (event: ChangeEvent<HTMLSelectElement>) => {
+    handleGetCountry(event.target.value);
   }
 
   return (
-    <select name="Country">
+    <select name="Country" onChange={handleSelectValue}>
       <option disabled>Select Country</option>
       {countries.map((country: CountriesType) => (
         <option
           key={country.key}
           value={country.name}
-          onClick={() => handleSelectCountry(country.name)}
         >{country.name}</option>
       ))}
     </select>
